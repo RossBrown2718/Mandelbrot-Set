@@ -6,23 +6,23 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 public class Mandelbrot extends Canvas {
-	
+
 public static ArrayList<ArrayList<Point>> epic = new ArrayList<ArrayList<Point>>();
-	
+
     long start = System.currentTimeMillis();
-	
+
     boolean b = false;
-    
+
 	public static void main(String[] args) {
-		
+
 		JFrame f = new JFrame("Mandelbrot");
-		
+
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 		Mandelbrot m = new Mandelbrot();
         f.add(m);  
         f.setSize(600, 600);
         f.setVisible(true);
-        
+
 	}
 
 	public Mandelbrot() {
@@ -45,7 +45,7 @@ public static ArrayList<ArrayList<Point>> epic = new ArrayList<ArrayList<Point>>
         	}
 		}
 	}
-	
+
 	public void paint(Graphics g) {
 		if (!b) {
 			g.setColor(Color.BLACK);
@@ -86,7 +86,7 @@ public static ArrayList<ArrayList<Point>> epic = new ArrayList<ArrayList<Point>>
     			int green = (int) (picker1[1] + (t * (picker2[1] - picker1[1]))) % 255;
     			int blue = (int) (picker1[2] + (t * (picker2[2] - picker1[2]))) % 255;
     			g.setColor(new Color(red, green, blue));
-    			g.fillRect(epic.get(i).get(j).getX(), epic.get(i).get(j).getY(), 1, 1);
+    			g.fillRect((int) epic.get(i).get(j).getX(), (int) epic.get(i).get(j).getY(), 1, 1);
 			}
 		}
 		b = true;
@@ -116,11 +116,11 @@ public static ArrayList<ArrayList<Point>> epic = new ArrayList<ArrayList<Point>>
 		if(i < 16) return MBpallet[i];
 		return new int[] {0, 0, 0};
 	}
-	
+
 	public int seconds() {
 		return (((int) (System.currentTimeMillis() - start))/1000) % 16;
 	}
-	
+
 	public double fraction() {
 		return (((double) System.currentTimeMillis() - start)/1000) % 1;
 	}

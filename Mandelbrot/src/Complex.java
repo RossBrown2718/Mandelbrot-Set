@@ -16,7 +16,7 @@ public class Complex {
 		return new Complex(((this.real) * i.real) + (this.imaginary * i.imaginary * -1), (this.real * i.imaginary) + (this.imaginary * i.real));
 	}
 	
-	public Complex Power(int j) {
+	public Complex Power(double j) {
 		if (j == 0) return new Complex(1, 0);
 		Complex res = this;
 		for (int i = 1; i < j; i++) {

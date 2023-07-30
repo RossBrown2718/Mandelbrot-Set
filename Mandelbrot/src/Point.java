@@ -1,7 +1,7 @@
 
 public class Point {
 	
-	public int x, y;
+	public double x, y;
 	
 	public Point(int x1, int y1) {
 		x = x1;
@@ -12,15 +12,15 @@ public class Point {
 		return "(" + this.x + ", " + this.y + ")";
 	}
 	
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 	
-	public int getY() {
+	public double getY() {
 		return y;
 	}
-	//converts a point on the Jframe to a point on the graph, (-3 -> 1), (-1.5i -> 1.5i)
+	
 	public Complex convert() {
-		return new Complex(((this.x * 0.005) - 2), ((this.y * -.005) + 1.5));
+		return new Complex(((this.getX() * 0.005) - 2), ((this.getY() * -.005) + 1.5));
 	}
 }
